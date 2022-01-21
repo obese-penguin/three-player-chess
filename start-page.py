@@ -41,7 +41,26 @@ def create_button(x, y, width, height, hovercolor, defaultcolor, msg):
     elif msg == "Leave":
         buttontext = smallfontbold.render(msg, True, white)
         screen.blit(buttontext, (int((screen_width - buttontext.get_width()) / 2), 450))
-    
+    elif msg == "Back":
+        buttontext = smallfontbold.render(msg, True, white)
+        screen.blit(buttontext, (20, 11))
+
+def menu():
+    running = True
+    while running:
+        screen.fill(ceramic)
+        backbutton = create_button(x=7, y=7, width=80, height=26, hovercolor=light_wood, defaultcolor=dark_wood, msg="Back")
+        if backbutton == True:
+            running=False
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        pygame.display.update()
+        clock.tick(15)
+
 def start_menu():
     startText = titlefont.render("Chess Game", True, navy_blue)
     smallText = smallfont.render("Good Game", True, ceramic)
@@ -53,6 +72,13 @@ def start_menu():
         
         startbutton = create_button(x=250, y=282.5, width=300, height=100, hovercolor=light_wood, defaultcolor=dark_wood, msg="Start")
         leavebutton = create_button(x=337.5, y=435, width=125, height=50, hovercolor=lightred_wood, defaultcolor=dark_wood, msg="Leave") 
+        
+        if leavebutton:
+            pygame.quit()
+            sys.exit()
+
+        elif startbutton:
+            menu()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
