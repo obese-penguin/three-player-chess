@@ -1,5 +1,3 @@
-# three-player-chess
-boo
+# Three Player Chess
 
-
-nothing to see here shoo
+Implementing a three player chess game using Pygame and sprites
