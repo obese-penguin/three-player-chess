@@ -18,7 +18,7 @@ Y = 800
 display_surface = pygame.display.set_mode((X, Y ))
 
 pygame.display.set_caption('Image')
-path = 'resized2-chessimg.jpeg'
+path = 'assets/chessboard.jpeg'
 
 image = pygame.image.load(path)
 
