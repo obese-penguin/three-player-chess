@@ -37,6 +37,8 @@ class Piece(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (c[x][y][0], c[x][y][1])
 
+    def control(self,x,y):
+        self.rect.center = (c[x][y][0], c[x][y][1])
 
 r_b_R = Piece(r_b,(2+rot)%24,5)
 n_b_R = Piece(n_b,(3+rot)%24,5)
@@ -113,7 +115,16 @@ path = 'assets/chessboard.jpeg'
 
 image = pygame.image.load(path)
 
+def select_piece():
+    pos = pygame.mouse.get_pos()
+    clicked_sprites = [s for s in pieces if s.rect.collidepoint(pos)]
+    #print(clicked_sprites[0])
+    #if len(clicked_sprites == 1):
+    #    return clicked_sprites[0]
+    print(clicked_sprites[0])
+    return clicked_sprites[0]
 
+selected = False
 
 while True :
 
@@ -133,8 +144,23 @@ while True :
 
     print(coordangle,d,x,y)
 
+
+
+
     for event in pygame.event.get() :
-        if event.type == pygame.QUIT :
+
+        if event.type == pygame.MOUSEBUTTONDOWN and not selected:
+            try:
+                piece_selected = select_piece()
+                selected = True
+            except:
+                selected = False
+
+        elif event.type == pygame.MOUSEBUTTONDOWN and selected:
+            piece_selected.control(coordangle,d)
+            selected = False
+
+        elif event.type == pygame.QUIT :
             pygame.quit()
             quit()
         pygame.display.update()
