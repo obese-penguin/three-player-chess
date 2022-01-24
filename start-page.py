@@ -357,8 +357,8 @@ def menu():
 
 def start_menu():
     startText = titlefont.render("Chess Game", True, navy_blue)
-    credit = [creditfont.render("Made by: ", True, credit_color), creditfont.render("Ashesh Misra", True, credit_color),creditfont.render("Riddhiman Sengupta", True, credit_color), 
-                creditfont.render("Rochit Kumar", True, credit_color), creditfont.render("Soham Chakraborty", True, credit_color)]
+    credit = [creditfont.render("Made by: ", True, credit_color), creditfont.render("Ashesh Mishra", True, credit_color),creditfont.render("Riddhiman Sengupta", True, credit_color), 
+                creditfont.render("Rachit Kumar", True, credit_color), creditfont.render("Soham Chakraborty", True, credit_color)]
     
     x = mediumfontbold.render("Made by: ", True, white)
     while True: 
