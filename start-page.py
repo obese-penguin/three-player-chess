@@ -1,4 +1,4 @@
-import sys, pygame
+import sys, pygame, time
 
 pygame.init()
 
@@ -57,6 +57,7 @@ def create_button(x, y, width, height, hovercolor, defaultcolor, msg, player1=''
         pygame.draw.rect(screen, hovercolor, (x, y, width, height), border_top_left_radius = 3, border_top_right_radius = 3,
                         border_bottom_left_radius = 3, border_bottom_right_radius=3)
         if click[0] == 1:
+            time.sleep(0.025)
             if msg == "Enter":
                 players.extend([player1, player2, player3])
             return True
